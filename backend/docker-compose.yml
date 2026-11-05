@@ -1,0 +1,28 @@
+# VPS deployment with automatic HTTPS (Caddy + Let's Encrypt).
+# 1) Point a DNS A-record (e.g. api.example.com) to the server.  2) Set DOMAIN in .env.
+# 3) docker compose up -d
+services:
+  api:
+    build: .
+    env_file: .env
+    volumes:
+      - voice_meta:/srv/data
+    restart: unless-stopped
+    expose:
+      - "8000"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DOMAIN=${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      - api
+volumes:
+  voice_meta:
+  caddy_data:

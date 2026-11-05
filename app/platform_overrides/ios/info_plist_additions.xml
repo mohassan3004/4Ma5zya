@@ -1,0 +1,12 @@
+	<key>NSMicrophoneUsageDescription</key>
+	<string>يستخدم التطبيق الميكروفون لتسجيل عينات من صوتك لإنشاء صوت القراءة الخاص بك.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>ar</string>
+	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
