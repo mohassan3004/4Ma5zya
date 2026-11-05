@@ -74,7 +74,7 @@ class ArabicText {
     return m;
   }
 
-  static final RegExp _invisible = RegExp('[​-‏‪-‮⁦-⁩﻿­ـ]');
+  static final RegExp _invisible = RegExp(r'[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF\u00AD\u0640]');
   static final RegExp _spaces = RegExp(r'[ \t  - 　]+');
   static final RegExp _pageNumberLine = RegExp(r'^[\s\-–—]*[0-9٠-٩۰-۹]{1,4}[\s\-–—]*$');
   static final RegExp _harakat = RegExp('[ً-ْٰ]');
