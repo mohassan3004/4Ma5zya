@@ -188,7 +188,8 @@ class _AddVoiceScreenState extends State<AddVoiceScreen> {
             await _files.deleteQuietly(s.filePath);
           }
           _samples.clear();
-          if (mounted) Navigator.of(context).pop();
+          if (!context.mounted) return;
+          Navigator.of(context).pop();
         }
       },
       child: Scaffold(
